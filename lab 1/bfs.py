@@ -10,13 +10,14 @@ def bfs(graph,start):
             print(node)
             queue.extend(graph[node])
 
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
-    'D': [],
-    'E': ['F'],
-    'F': []
-}
+def graph(n):
+    graph = {}
+    for _ in range(n):
+        key = input("Enter key: ")
+        value = input("Enter value: ")
+        graph[key] = value
+    return graph
+
+n = int(input('enter the number of nodes: '))
 
 bfs(graph, 'A')

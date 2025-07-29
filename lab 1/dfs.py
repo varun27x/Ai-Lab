@@ -13,14 +13,15 @@ def dfs(graph, start):
 
     return visited
 
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
-    'D': [],
-    'E': ['F'],
-    'F': []
-}
+def graph(n):
+    graph = {}
+    for _ in range(n):
+        key = input("Enter key: ")
+        value = input("Enter value: ")
+        graph[key] = value
+    return graph
 
-dfs(graph, 'A')
+n = int(input('enter the number of nodes: '))
+
+dfs(graph(n), 'A')
 

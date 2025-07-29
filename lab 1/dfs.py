@@ -7,9 +7,6 @@ def dfs(graph, start):
         if node not in visited:
             print(node)
             visited.add(node)
-
-            # Add neighbors to the stack
-            # Reversed to maintain similar order as recursive DFS
             for neighbor in reversed(graph[node]):
                 if neighbor not in visited:
                     stack.append(neighbor)

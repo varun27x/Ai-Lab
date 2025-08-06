@@ -1,27 +1,23 @@
+from collections import defaultdict
 def dfs(graph, start):
-    visited = set()
+    visited = set([start])
     stack = [start]
-
     while stack:
         node = stack.pop()
-        if node not in visited:
-            print(node)
-            visited.add(node)
-            for neighbor in reversed(graph[node]):
-                if neighbor not in visited:
-                    stack.append(neighbor)
+        print(node)
+        for neighbor in reversed(graph[node]):
+            if neighbor not in visited:
+                visited.add(neighbor)
+                stack.append(neighbor)
 
-    return visited
+graph = defaultdict(list)
+n = int(input("enter the number of edges: "))
+for _ in range(n):-p
+    u,v = map(int,input("enter the two nodes: ").split())
+    graph[u].append(v)
+    graph[v].append(u)
 
-def graph(n):
-    graph = {}
-    for _ in range(n):
-        key = input("Enter key: ")
-        value = input("Enter value: ")
-        graph[key] = value
-    return graph
+start = int(input("enter the starting node: "))
 
-n = int(input('enter the number of nodes: '))
-
-dfs(graph(n), 'A')
+dfs(graph, start)
 

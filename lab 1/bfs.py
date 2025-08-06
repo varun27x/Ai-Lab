@@ -1,23 +1,23 @@
 from collections import deque
 
 def bfs(graph,start):
-    visited = set()
+    visited = set([start])
     queue = deque([start])
     while queue:
         node = queue.popleft()
-        if node not in visited:
-            visited.add(node)
-            print(node)
-            queue.extend(graph[node])
+        print(node)
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
 
-def graph(n):
-    graph = {}
-    for _ in range(n):
-        key = input("Enter key: ")
-        value = input("Enter value: ")
-        graph[key] = value
-    return graph
+graph = defaultdict(list)
+n = input("enter the number of edges"))
+for _ in range(n):
+    u,v = map(int,input("enter the two nodes: ").split())
+    graph[u].append(v)
+    graph[v].append(u)
 
-n = int(input('enter the number of nodes: '))
-
-bfs(graph, 'A')
+start = int(input("enter the first node: "))
+    
+bfs(graph, start)
